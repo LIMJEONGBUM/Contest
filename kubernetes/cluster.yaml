@@ -1,0 +1,39 @@
+apiVersion: eksctl.io/v1alpha5
+kind: ClusterConfig
+
+metadata:
+  name: skills-cluster
+  region: ap-northeast-2
+  version: "1.26"
+
+vpc:
+  id: vpc-00f85917233421b88
+  subnets:
+    private:
+      wsi-private-a: { id: subnet-0153d7437f1b95280 }
+      wsi-private-b: { id: subnet-0d302d248a86337f8 }
+      wsi-private-c: { id: subnet-006401649a117c106 }
+
+managedNodeGroups:
+  - name: skills-app
+    labels: { skills/dedicated: app }
+    instanceType: t3.small
+    desiredCapacity: 2
+    maxSize: 2
+    minSize: 2
+    volumeSize: 20
+    privateNetworking: true
+    iam:
+      withAddonPolicies:
+  - name: skills-addon
+    labels: { skills/dedicated: add-on }
+    instanceType: t3.small
+    desiredCapacity: 2
+    maxSize: 2
+    minSize: 2
+    volumeSize: 20
+    privateNetworking: true
+    iam:
+      withAddonPolicies:
+        albIngress: true
+        autoScaler: true
