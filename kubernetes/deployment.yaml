@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: match
+  namespace: skills
+  labels:
+    skills/version: v1
+    app: match
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: match
+  template:
+    metadata:
+      labels:
+        app: match
+        skills/version: v1
+    spec:
+      containers:
+      - name: match
+        image: 003150130236.dkr.ecr.ap-northeast-2.amazonaws.com/match-ecr:latest
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: stress
+  namespace: skills
+  labels:
+    skills/version: v1
+    app: stress
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: stress
+  template:
+    metadata:
+      labels:
+        app: stress
+        skills/version: v1
+    spec:
+      containers:
+      - name: stress
+        image: 003150130236.dkr.ecr.ap-northeast-2.amazonaws.com/stress-ecr
+
+
+
+kubectl apply -f deployment.yaml
