@@ -1,0 +1,13 @@
+클러스터의 IAM OIDC 제공업체 생성
+https://docs.aws.amazon.com/ko_kr/eks/latest/userguide/enable-iam-roles-for-service-accounts.html
+
+helm 설치
+https://helm.sh/docs/intro/install/
+
+AWS Load Balancer Controller 설치
+https://docs.aws.amazon.com/ko_kr/eks/latest/userguide/aws-load-balancer-controller.html
+
+Subnet Discovery
+https://kubernetes-sigs.github.io/aws-load-balancer-controller/v2.5/deploy/subnet_discovery/
+뒤에 공백이 있는지 없는지 잘 확인 하기
+
