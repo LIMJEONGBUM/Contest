@@ -1,0 +1,33 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      python: 3.11
+    commands:
+      - pip3 install flask
+
+  pre_build:
+    commands:
+      - aws ecr get-login-password --region ap-northeast-2 | docker login --username AWS --password-stdin 003150130236.dkr.ecr.ap-northeast-2.amazonaws.com
+  
+  build:
+    commands:
+      - pip3 install flask
+      - python3 -m py_compile src/app.py   # app.py 컴파일
+      - mv src/__pycache__/app.cpython-311.pyc app.pyc   # 컴파일 파일 이동
+      - docker build -t wsi-api-ecr .
+      - today=$(date -d "+9 hours"  "+%y%m%d%H%M%S")  #한국 현재 시간으로 태그 달기
+      - docker tag wsi-api-ecr:latest 003150130236.dkr.ecr.ap-northeast-2.amazonaws.com/wsi-api-ecr:$today
+    
+        
+  post_build:
+    commands:
+      - docker push 003150130236.dkr.ecr.ap-northeast-2.amazonaws.com/wsi-api-ecr:$today
+artifacts:
+  files:
+    - appspec.yml
+    - app.pyc
+    - start.sh
+    - stop.sh
+    - install.sh
