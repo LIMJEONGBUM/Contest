@@ -1,0 +1,4 @@
+FROM golang
+WORKDIR /main
+COPY main .
+CMD ["./main"]
