@@ -1,0 +1,17 @@
+version: 0.0
+os: linux
+files:
+  - source: /
+    destination: ./
+hooks:
+  AfterInstall:
+    - location: install.sh
+      runas: root
+
+  ApplicationStart:
+    - location: start.sh
+      runas: root
+
+  ApplicationStop:
+    - location: stop.sh
+      runas: root
