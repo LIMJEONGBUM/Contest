@@ -1,0 +1,28 @@
+##글로벌 DB 템플릿입니다.
+
+
+AWSTemplateFormatVersion: 2010-09-09
+Description: Creating DynamoDB tables with CloudFormation
+
+Resources:
+  myTable:
+    Type: AWS::DynamoDB::GlobalTable
+    Properties:
+      TableName: park
+      BillingMode: PAY_PER_REQUEST
+      StreamSpecification:
+        StreamViewType: NEW_AND_OLD_IMAGES
+      AttributeDefinitions:
+        - AttributeName: id
+          AttributeType: S
+      KeySchema:
+        - AttributeName: id
+          KeyType: HASH
+      Replicas:
+        - Region: ap-northeast-2
+        - Region: us-east-2
+
+Outputs:
+  Student:
+    Description: Student table created with this template
+    Value: !Ref myTable
