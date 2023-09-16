@@ -38,6 +38,7 @@ managedNodeGroups:
         imageBuilder: true
         albIngress: true
         autoScaler: true
+        cloudWatch: true
         ebs: true
         efs: true
         
