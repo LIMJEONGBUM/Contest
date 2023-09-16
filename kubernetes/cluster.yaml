@@ -35,5 +35,9 @@ managedNodeGroups:
     privateNetworking: true
     iam:
       withAddonPolicies:
+        imageBuilder: true
         albIngress: true
         autoScaler: true
+        ebs: true
+        efs: true
+        
