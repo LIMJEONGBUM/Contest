@@ -41,4 +41,7 @@ managedNodeGroups:
         cloudWatch: true
         ebs: true
         efs: true
-        
+
+# eksctl create cluster -f cluster.yaml --dry-run  -> 잘 생성 되었는지 미리 보기
+# eksctl create cluster -f cluster.yaml  -> 미리 보기 없이 바로 생성
+
