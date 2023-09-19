@@ -1,1 +1,16 @@
+#사이트는 밑에 사이트를 참고 한다.
+https://velog.io/@highpo/『AWS』-ELB로그를-분석하는-NPM모듈#0-문제와-답 
 
+## log 배포 파일을 ec2에 mkdir logs 디렉토리 안에 넣어 놓고 홈에서 logs/ 로 불러오는 방식으로 사용한다. ##
+
+# LB에서 응답 코드를 리턴한 총 타운트 수 구한는 명령어
+elb-log-analyzer logs/ --col3=elb_status_code
+
+# GET method로 /v1/user API를 호출한 총 카운트 수 구하는 명령어
+elb-log-analyzer logs/ --col1=count --col2=method --col3=requested_resource --prefix2=GET
+
+# PSOT methpd로 API를 제일 많이 호출한 IP와 해당 IP가 POST를 호출한 횟수 구하는 명령어
+elb-log-analyzer logs/ --col1=count --col2=client --col3=method --col4=requested_resource --prefix3=POST
+
+# LB에서 반환 하는 302 응답코드를 가장 많이 받은 순서로 IP 3개와 해당 IP 별로 302 응답코드를 받은 횟수를 구한는 명령어
+elb-log-analyzer logs/ --col1=count --col2=client --col3=elb_status_code --prefix3=302
