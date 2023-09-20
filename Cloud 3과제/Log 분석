@@ -5,6 +5,8 @@ https://velog.io/@highpo/『AWS』-ELB로그를-분석하는-NPM모듈#0-문제�
 
 # LB에서 응답 코드를 리턴한 총 타운트 수 구한는 명령어
 elb-log-analyzer logs/ --col3=elb_status_code
+# LB에서 302 응답 코드를 리턴한 총 타운트 수 구한는 명령어
+elb-log-analyzer logs/ --col1=count --col2=elb_status_code --prefix2=302
 
 # GET method로 /v1/user API를 호출한 총 카운트 수 구하는 명령어
 elb-log-analyzer logs/ --col1=count --col2=method --col3=requested_resource --prefix2=GET
