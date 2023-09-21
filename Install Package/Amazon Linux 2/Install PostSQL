@@ -1,0 +1,4 @@
+https://developerbee.tistory.com/192
+
+sudo amazon-linux-extras install postgresql14 -y      #14는 버전 적기    amazon-linux-extras말고 yum으로 교체 가능
+
