@@ -1,0 +1,13 @@
+https://docs.aws.amazon.com/ko_kr/codedeploy/latest/userguide/codedeploy-agent-operations-install-linux.html
+
+sudo yum update
+sudo yum install ruby
+sudo yum install wget
+
+wget https://bucket-name.s3.region-identifier.amazonaws.com/latest/install
+chmod +x ./install
+sudo ./install auto
+
+
+
+
