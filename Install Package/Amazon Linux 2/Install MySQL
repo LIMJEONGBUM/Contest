@@ -1,0 +1,25 @@
+https://docs.aws.amazon.com/ko_kr/AmazonRDS/latest/UserGuide/USER_ConnectToInstance.html
+
+#MysQL 접근 명령
+User$ mysql -u admin -p -h myaurora-instance-1.xxxxxxx.rds.amazonaws.com
+Enter password:
+
+
+
+# EC2 인스턴스에서 MySQL 설치시 conflicting requests 에러가 발생하는 문제 해결
+https://dev.classmethod.jp/articles/ec2-mysql-install-confilicting-requests-error-kr/
+
+# 데이터베이스 생성 명령어
+CREATE DATABASE (이름);
+
+# 데이터베이스 사용 명령어
+use (이름)
+
+#테이블 생성 명령어
+create table (이름) (
+-> id varchar(255),
+-> name varchar(255)
+);
+
+#생성한 테이블 보기
+desc (테이블 이름);
