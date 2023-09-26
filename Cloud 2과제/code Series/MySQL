@@ -1,0 +1,20 @@
+RDS 접근 방법
+amazon linux 2023에 맞게 mysql 설치
+sudo dnf install https://dev.mysql.com/get/mysql80-community-release-el9-1.noarch.rpm
+sudo dnf install mysql-community-server
+
+mysql -u admin -p -h myaurora-instance-1.xxxxxxx.rds.amazonaws.com
+Enter password:
+접근 명령어
+
+CREATE DATABASE (name);     -> 데이터베이스 생성
+
+use (database name)
+
+create table (name) (
+id varchar(255),
+name varchar(255)
+);
+-> table이름 지정후 생성
+
+desc (이름)  -> 생성한 테이블 보기
