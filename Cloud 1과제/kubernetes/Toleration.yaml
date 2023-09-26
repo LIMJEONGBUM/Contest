@@ -76,6 +76,7 @@ https://sarc.io/index.php/cloud/2311-taint-toleration
 
 -------
 
+
 ### example deployment
 ### toleration은 deployment나 pod.yaml에 설정을 해주면 된다. key와 value 값을 꼭 적어야 한다.
 
