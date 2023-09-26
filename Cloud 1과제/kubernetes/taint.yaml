@@ -1,0 +1,50 @@
+## taint 설정은 cluster 설정 할 때 NodeGroup에 설정을 해주면 된다. 
+# taint는 노드가 파드를 제외 시키는 것이다.
+## kubectl taint node ip-10-0-2-183.ap-northeast-2.compute.internal test=test1234:NoSchedule  이런식으로 명령어 형식으로 설정 해도된다. 
+## 명령어 형식으로 설정 하고 해제 하는 방법은 앞에 명령어에 -를 붙여 주면 된다.
+
+---
+apiVersion: eksctl.io/v1alpha5
+kind: ClusterConfig
+
+metadata:
+  name: taints-1
+  region: us-west-1
+
+# Unmanaged nodegroups with and without taints.
+nodeGroups:
+  - name: ng1-public
+    instanceType: m5.xlarge
+    minSize: 2
+    maxSize: 8
+    taints:
+      - key: your.domain.com/db
+        value: "true"
+        effect: NoSchedule
+      - key: your.domain.com/production
+        value: "true"
+        effect: NoExecute
+  - name: ng2-private
+    instanceType: m5.xlarge
+    minSize: 2
+    maxSize: 8
+    privateNetworking: true
+    taints:
+      - key: your.domain.com/sensitive-information
+        value: "true"
+        effect: NoSchedule
+  - name: ng3-public
+    instanceType: m5.xlarge
+    minSize: 2
+    maxSize: 8
+
+# Managed nodegroups with taints.
+managedNodeGroups:
+  - name: mng1-public
+    taints:
+      - key: your.domain.com/memory-pressure
+        value: "true"
+        effect: PreferNoSchedule
+      - key: your.domain.com/needs-auth
+        value: "true"
+        effect: NoExecute
