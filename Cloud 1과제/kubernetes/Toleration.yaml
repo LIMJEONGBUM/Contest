@@ -1,0 +1,108 @@
+https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/
+
+https://access.redhat.com/documentation/ko-kr/openshift_container_platform/4.6/html/post-installation_configuration/post-install-taints-tolerations
+
+https://sarc.io/index.php/cloud/2311-taint-toleration
+
+## Taint kind
+- **NoSchedule**
+
+  -> The existing Pod is limited to the Pod, restricting schedule only to run forward.
+  -> 테인트에 일치하지 않는 새 pod는 해당 노드에 예약되지 않는다. 노드의 기존 Pod는 그래도 유지된다.
+  -> * 해당 노드에 Pod가 생성되지 않는다, 기존 실행 중인 Pod는 상관 없음, Toleration에 따라 스케줄링 될 수 있음.
+
+- **NoExecute**
+ 
+  -> Limits the scheduling of pods that will be created in the future, and releases all pods that were previously placed in that node
+  -> 테인트에 일치하지 않느 새 pod는 해당 노드에 예약할 수 없다, 일치하는 톨러레이션이 없는 노드의 기존 pod는 제거된다.
+  -> Toleration이 없으면 Pod 스케줄링 안된다. , 기존에 실행 중인 Pod에도 영향을 준다.
+
+- **PreferNoSchedult**
+
+   -> I allow existing running pods, and I don't prefer to schedule future pods, but I allow them if there's no other place to schedule except that node.
+   -> 테인트와 일치하지 않는 새 pod는 해당 노드에 예약할 수 있지만 스케줄러는 그렇게 하지 않는다. , 노드의 기존 pod는 그대로 유지된다.
+   -> Toleration이 없으면 Pod 스케줄링이 안되지만 꼭 그렇진 않음 , 클러스터에 자원이 부족하면 Taint가 걸려있지만 스케줄링이 될 수도 있다.
+
+
+
+
+---
+### Taint CLI
+
+1. Add Taint
+    ```sh
+    kubectl taint node NodeName [key]=[value]:[effect]
+    ```
+
+2. Delete Taint
+    ```sh
+    kubectl taint node NodeName [key]=[value]:[effect]-
+    ```
+
+------
+
+### Tollation
+
+1. All kinds of tints are allowed.
+
+    ```yml
+    tolerations:
+    - operator: Exists
+    ```
+
+2. Allow all Taint with Key as Role.
+    ```yml
+    tolerations:
+    - key: role
+        operator: Exists
+    ```
+
+3. Allow all Taint where Key is Role and Effect is NoExecute.
+    ```yml
+    tolerations:
+    - ket: role
+        operator: Exists
+        effect: NoExecute
+    ```
+
+4. role=system:Allow NoscheduleTaint.
+    ```yml
+    tolerations:
+    - key: role
+      operator: Equal
+      value: system
+      effect: NoSchedule
+    ```
+
+-------
+
+### example deployment
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tolerated
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: hello
+  template:
+    metadata:
+      name: hello
+      labels:
+        app: hello
+    spec:
+      containers:
+      - name: nginx
+        image: nginxdemos/hello:plain-text
+        ports:
+        - name: http
+          containerPort: 80
+          protocol: TCP
+      tolerations:
+      - key: role
+        operator: Equal
+        value: system
+        effect: NoSchedule
+```
