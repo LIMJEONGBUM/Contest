@@ -11,3 +11,7 @@ spec:
   minReplicas: 3
   maxReplicas: 5
   targetCPUUtilizationPercentage: 70
+
+
+#참고 사이트
+https://kubernetes.io/ko/docs/tasks/run-application/horizontal-pod-autoscale/
