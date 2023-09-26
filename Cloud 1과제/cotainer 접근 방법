@@ -1,0 +1,14 @@
+일반적으로는 /bin/bash
+
+--/bin/bash
+
+--/bin/sh
+
+-- sh
+
+-- ksh
+
+--/bin/bash
+
+  등등 다른 shell로 접근 할 수 있다.
+  kubectl exec -it [pod name] -n [namespace] --/bin/sh
