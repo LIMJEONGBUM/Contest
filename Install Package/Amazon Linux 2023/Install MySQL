@@ -3,3 +3,6 @@ dnf update -y
 dnf install mariadb105-server -y
 systemctl restart mariadb
 
+
+
+https://docs.aws.amazon.com/ko_kr/AmazonRDS/latest/UserGuide/USER_ConnectToInstance.html
