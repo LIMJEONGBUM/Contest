@@ -23,8 +23,5 @@ tar -xzf eksctl_$PLATFORM.tar.gz -C /tmp && rm eksctl_$PLATFORM.tar.gz
 sudo mv /tmp/eksctl /usr/local/bin
 
 
-codedeploy 에이전트 설치 하는 방법
-https://docs.aws.amazon.com/ko_kr/codedeploy/latest/userguide/codedeploy-agent-operations-install-linux.html
 
-code deploy 에이전트에 관한 로그를 보는 명령어
-vi /var/log/aws/codedeploy-agent/codedeploy-agent.log
+
