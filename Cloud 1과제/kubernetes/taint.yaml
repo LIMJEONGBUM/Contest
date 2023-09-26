@@ -2,7 +2,7 @@
 # taint는 노드가 파드를 제외 시키는 것이다.
 ## kubectl taint node ip-10-0-2-183.ap-northeast-2.compute.internal test=test1234:NoSchedule  이런식으로 명령어 형식으로 설정 해도된다. 
 ## 명령어 형식으로 설정 하고 해제 하는 방법은 앞에 명령어에 -를 붙여 주면 된다.
-
+## key 값과 value 값을 꼭 적어야 한다. toleration key value와 같을 필요는 없다고 한다. taoleration과 같이 사용할 뿐이다.
 ---
 apiVersion: eksctl.io/v1alpha5
 kind: ClusterConfig
