@@ -213,7 +213,7 @@ Resources:
       VpcId: !Ref VPC
       Tags:
         - Key: Name
-          Value: !Sub ${EnvironmentName} Private Routes (AZ1)
+          Value: !Sub ${EnvironmentName}-Private-rtb-a
 
   DefaultPrivateRoute1:
     Type: AWS::EC2::Route
@@ -234,7 +234,7 @@ Resources:
       VpcId: !Ref VPC
       Tags:
         - Key: Name
-          Value: !Sub ${EnvironmentName} Private Routes (AZ2)
+          Value: !Sub ${EnvironmentName}-Private-rtb-b
 
   DefaultPrivateRoute2:
     Type: AWS::EC2::Route
@@ -256,7 +256,7 @@ Resources:
       VpcId: !Ref VPC
       Tags:
         - Key: Name
-          Value: !Sub ${EnvironmentName} Private Routes (AZ3)
+          Value: !Sub ${EnvironmentName}-Private-rtb-c
 
   DefaultPrivateRoute3:
     Type: AWS::EC2::Route
@@ -270,6 +270,13 @@ Resources:
     Properties:
       RouteTableId: !Ref PrivateRouteTable3
       SubnetId: !Ref PrivateSubnet3
+
+  NoIngressSecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupName: "no-ingress-sg"
+      GroupDescription: "Security group with no ingress rule"
+      VpcId: !Ref VPC
 
 
 
