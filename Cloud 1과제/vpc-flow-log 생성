@@ -8,3 +8,6 @@ https://docs.aws.amazon.com/ko_kr/vpc/latest/userguide/flow-logs-cwl.html
 vpc를 선택하고 플로우 로그에 들어가서 플로우 로그 생성을 클릭한다.
 이름을 지정하고 대상 로그 그룹을 /logs 이런식으로 지정하고 iam 역할을 선택 한다.
 생성 후 완료
+
+
+https://exuberant-booth-115.notion.site/VPC-Flow-log-48c5ab3a582f4366b20a4be4cda7d486?pvs=4
