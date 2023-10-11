@@ -6,3 +6,5 @@ systemctl restart mariadb
 
 
 https://docs.aws.amazon.com/ko_kr/AmazonRDS/latest/UserGuide/USER_ConnectToInstance.html
+
+https://dev.classmethod.jp/articles/ec2-mysql-install-confilicting-requests-error-kr/
