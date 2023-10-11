@@ -1,0 +1,5 @@
+Linux2, Linux2023 fluent-bit 설치 패키지
+curl https://raw.githubusercontent.com/fluent/fluent-bit/master/install.sh | sh
+
+사이트
+https://docs.fluentbit.io/manual/installation/linux/amazon-linux#amazon-linux-2022
