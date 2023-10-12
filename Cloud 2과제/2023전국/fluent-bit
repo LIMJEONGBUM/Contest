@@ -3,3 +3,15 @@ curl https://raw.githubusercontent.com/fluent/fluent-bit/master/install.sh | sh
 
 사이트
 https://docs.fluentbit.io/manual/installation/linux/amazon-linux#amazon-linux-2022
+
+
+설치
+curl https://raw.githubusercontent.com/fluent/fluent-bit/master/install.sh | sh
+sudo systemctl start fluent-bit
+sudo systemctl enable fluent-bit
+sudo systemctl restart fluent-bit
+sudo systemctl status fluent-bit.service
+
+편집 경로
+vi /etc/fluent-bit/fluent-bit.conf
+vi /etc/fluent-bit/parsers.conf
