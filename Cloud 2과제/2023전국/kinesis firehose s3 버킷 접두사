@@ -1,0 +1,4 @@
+s3 버킷 접두사에서 경로/(11자리 랜덤 값)으로 s3에 저장하고 싶으면 
+경로/!{firehose:random-string}   이런 식으로 입력 하면 된다.
+예) output/!{firehose:random-string} 
+
