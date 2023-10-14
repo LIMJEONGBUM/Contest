@@ -35,8 +35,8 @@ def transform_and_add_newline(event):                            #{
                                                                 #{
     data = {                                                    #"name": "park",
         "name": event["name"],                                  #"born_year": 20,  # 출생일자 출력       -> 이 데이터를 기반으로 만든 python 함수
-        "born_year": born,                                      #"last_phone": "1160", # 전화번호 뒷자리
-        "last_phone": event["phone"][9:13],                     #"status": "good or bad" # 2004년 생 이상일 경우 good, 이 이하일 경우 bad
+        "born_year": born,                                      #"last_phone": "1160", # 전화번호 뒷자리 #https://onecompiler.com/python/3zqezkd67 이 사이트에서 확인 가능하다 b = "010-5681-1160" 이렇게 지정하고
+        "last_phone": event["phone"][9:13],                     #"status": "good or bad" # 2004년 생 이상일 경우 good, 이 이하일 경우 bad                                     print(b[9:13])를 하면 뒷자리면 출력이 된다.
         "status": st                                            #}
     }                                                           
     ################################################################
