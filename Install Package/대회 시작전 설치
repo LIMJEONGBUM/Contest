@@ -4,4 +4,7 @@ msiexec.exe /i https://awscli.amazonaws.com/AWSCLIV2.msi /qn
 aws --version
 
 putty
+https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html
+
 visual studio code
+https://code.visualstudio.com/download
