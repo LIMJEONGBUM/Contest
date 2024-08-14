@@ -17,4 +17,3 @@ elb-log-analyzer logs/ --col1=count --col2=client --col3=method --col4=requested
 # LB에서 반환 하는 302 응답코드를 가장 많이 받은 순서로 IP 3개와 해당 IP 별로 302 응답코드를 받은 횟수를 구한는 명령어
 elb-log-analyzer logs/ --col1=count --col2=client --col3=elb_status_code --prefix3=302
 
-https://exuberant-booth-115.notion.site/Cloud-0a21267ec3794fd9b90e9fa7a196ca04?pvs=4
